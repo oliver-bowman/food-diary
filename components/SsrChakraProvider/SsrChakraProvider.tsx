@@ -16,7 +16,7 @@ export const SsrChakraProvider = ({ cookies, ...props }: SsrChakraProviderProps)
 
   const colorModeManager = typeof cookies === "string" ? cookieStorageManager(cookies) : localStorageManager;
 
-  const theme = extendTheme(withDefaultColorScheme({ colorScheme: "green" }));
+  const theme = extendTheme(withDefaultColorScheme({ colorScheme: "pink" }));
 
   return <ChakraProvider theme={theme} colorModeManager={colorModeManager} {...props} />;
 };

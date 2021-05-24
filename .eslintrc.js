@@ -18,6 +18,21 @@ module.exports = {
     "no-debugger": "warn",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "no-restricted-imports": [
+      "warn",
+      {
+        paths: [
+          {
+            name: "@testing-library/react",
+            message: "Please use 'test-utils' instead",
+          },
+          {
+            name: "ts-jest/utils",
+            message: "Please use 'test-utils' instead",
+          },
+        ],
+      },
+    ],
   },
   overrides: [
     {

@@ -1,7 +1,8 @@
-import { AddIcon } from "@chakra-ui/icons";
-import { VStack, Text, Box, HStack } from "@chakra-ui/react";
+import { AddIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { VStack, Text, Box, HStack, IconButton, Divider } from "@chakra-ui/react";
 import React from "react";
-import { PageContainer, Section } from "../components/Layout";
+import NextLink from "next/link";
+import { PageContainer, InteractionGroup } from "../components/Layout";
 import { DatePicker } from "../components/DatePicker";
 
 export default function Home() {
@@ -9,33 +10,40 @@ export default function Home() {
     <PageContainer>
       <VStack align="stretch" spacing={6}>
         <Box>
-          <Text textAlign="center">date</Text>
           <DatePicker />
         </Box>
-        <Section>
-          <HStack justifyContent="space-between">
-            <Text>🍳 Add breakfast</Text>
-            <AddIcon />
-          </HStack>
-        </Section>
-        <Section>
+        <InteractionGroup>
           <HStack justifyContent="space-between">
             <Text>🍱 Add lunch</Text>
-            <AddIcon />
+            <IconButton aria-label="Add a lunch item" icon={<AddIcon />} />
           </HStack>
-        </Section>
-        <Section>
+        </InteractionGroup>
+        <InteractionGroup>
           <HStack justifyContent="space-between">
             <Text>🍔 Add dinner</Text>
-            <AddIcon />
+            <IconButton aria-label="Add a dinner item" icon={<AddIcon />} />
           </HStack>
-        </Section>
-        <Section>
+        </InteractionGroup>
+        <InteractionGroup>
           <HStack justifyContent="space-between">
             <Text>🥨 Add snack</Text>
-            <AddIcon />
+            <NextLink href="/2021-01-01/breakfast/add">
+              <IconButton aria-label="Add a snack item" icon={<AddIcon />} />
+            </NextLink>
           </HStack>
-        </Section>
+        </InteractionGroup>
+        <Divider />
+        <InteractionGroup>
+          <HStack justifyContent="space-between">
+            <VStack align="stretch" spacing={1}>
+              <Text>🍳 Breakfast</Text>
+              <Text fontSize="xs">Gluten, Dairy</Text>
+            </VStack>
+            <NextLink href="/2021-01-01/breakfast">
+              <IconButton as="a" aria-label="Add a breakfast item" icon={<ArrowRightIcon />} />
+            </NextLink>
+          </HStack>
+        </InteractionGroup>
       </VStack>
     </PageContainer>
   );
